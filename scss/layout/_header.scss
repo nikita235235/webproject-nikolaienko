@@ -5,21 +5,11 @@
     @include flex-center(row);
     justify-content: space-between;
     padding: 20px;
-    background-color: white;
-    
+    background-color: var(--color-surface);
+
     &__logo {
         font-weight: bold;
         font-size: 24px;
-        color: $color-primary;
-    }
-    
-    &__nav a {
-        margin-left: 15px;
-        text-decoration: none;
-        color: $color-text;
-        
-        &:hover {
-            color: $color-primary;
-        }
+        color: var(--color-primary);
     }
 }
