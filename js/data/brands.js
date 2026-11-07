@@ -1,0 +1,6 @@
+export const brands = [
+    { id: 1, name: 'Nike' },
+    { id: 2, name: 'Adidas' },
+    { id: 3, name: 'New Balance' },
+    { id: 4, name: 'Puma' },
+];
