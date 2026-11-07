@@ -84,6 +84,45 @@ body {
   text-align: left;
 }
 
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  width: 100%;
+  max-width: 960px;
+  text-align: left;
+}
+.toolbar__search {
+  flex: 1 1 240px;
+}
+.toolbar__sort {
+  flex: 0 1 220px;
+}
+.toolbar__filters {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  gap: 8px;
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 480px;
+  text-align: left;
+}
+.feedback__title {
+  font-size: 22px;
+}
+.feedback__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .button {
   display: inline-flex;
   align-items: center;

@@ -29,6 +29,13 @@ export class Store {
         return [...this.#items].sort((a, b) => a.name.localeCompare(b.name, 'uk'));
     }
 
+    sortItems(items, mode) {
+        const copy = [...items];
+        if (mode === 'price-asc') return copy.sort((a, b) => a.price - b.price);
+        if (mode === 'price-desc') return copy.sort((a, b) => b.price - a.price);
+        return copy.sort((a, b) => a.name.localeCompare(b.name, 'uk'));
+    }
+
     countByCategory() {
         return this.#items.reduce((acc, item) => {
             const brand = this.brandName(item.brandId);

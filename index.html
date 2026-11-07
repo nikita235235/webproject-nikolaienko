@@ -18,12 +18,67 @@
 
     <main class="main-content">
         <h1>Популярні кросівки</h1>
+
+        <section class="toolbar" aria-label="Пошук і фільтри">
+            <div class="field toolbar__search">
+                <label class="field__label" for="search">Пошук</label>
+                <input class="field__input" id="search" type="search" placeholder="Назва моделі" autocomplete="off">
+            </div>
+            <div class="field toolbar__sort">
+                <label class="field__label" for="sort">Сортування</label>
+                <select class="field__input" id="sort">
+                    <option value="title">За назвою</option>
+                    <option value="price-asc">Спочатку дешевші</option>
+                    <option value="price-desc">Спочатку дорожчі</option>
+                </select>
+            </div>
+            <div class="toolbar__filters" id="filters" role="group" aria-label="Фільтр за брендом"></div>
+        </section>
+
         <div class="catalog" id="catalog"></div>
+
+        <section class="feedback" aria-labelledby="feedback-title">
+            <h2 class="feedback__title" id="feedback-title">Зворотний зв’язок</h2>
+            <form class="feedback__form" id="feedback-form" novalidate>
+                <div class="field">
+                    <label class="field__label" for="fb-name">Ім’я</label>
+                    <input class="field__input" id="fb-name" name="name" type="text" autocomplete="name" aria-describedby="fb-name-error">
+                    <span class="field__error" id="fb-name-error"></span>
+                </div>
+                <div class="field">
+                    <label class="field__label" for="fb-email">Електронна пошта</label>
+                    <input class="field__input" id="fb-email" name="email" type="email" autocomplete="email" aria-describedby="fb-email-error">
+                    <span class="field__error" id="fb-email-error"></span>
+                </div>
+                <div class="field">
+                    <label class="field__label" for="fb-size">Розмір взуття (EU)</label>
+                    <input class="field__input" id="fb-size" name="size" type="text" inputmode="numeric" aria-describedby="fb-size-error">
+                    <span class="field__error" id="fb-size-error"></span>
+                </div>
+                <div class="field">
+                    <label class="field__label" for="fb-message">Повідомлення</label>
+                    <textarea class="field__input" id="fb-message" name="message" rows="4" aria-describedby="fb-message-error"></textarea>
+                    <span class="field__error" id="fb-message-error"></span>
+                </div>
+                <button class="button button--primary" type="submit">Надіслати</button>
+            </form>
+            <div id="form-status"></div>
+        </section>
     </main>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal__overlay" data-close></div>
+        <div class="modal__window">
+            <button class="modal__close" type="button" aria-label="Закрити" data-close>&times;</button>
+            <h2 class="modal__title" id="modal-title"></h2>
+            <p id="modal-text"></p>
+        </div>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2026 SneakerDrop. Всі права захищено.</p>
     </footer>
+
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

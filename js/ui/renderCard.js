@@ -8,7 +8,7 @@ export function renderCard({ id, name, price }, brandName) {
             <p class="card__text">${brandName}</p>
             <div class="card__footer">
                 <span>${formatPrice(price)}</span>
-                <button class="button button--secondary" type="button" data-id="${id}">
+                <button class="button button--secondary" type="button" data-action="open" data-id="${id}">
                     Детальніше
                 </button>
             </div>
