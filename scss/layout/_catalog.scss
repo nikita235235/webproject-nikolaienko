@@ -7,4 +7,7 @@
     width: 100%;
     max-width: 960px;
     text-align: left;
+
+    // Повідомлення (завантаження, помилка) займають весь рядок сітки
+    &__message { grid-column: 1 / -1; }
 }
