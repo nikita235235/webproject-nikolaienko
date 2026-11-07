@@ -14,7 +14,10 @@
     &:hover { box-shadow: 0 4px 14px var(--color-shadow); }
 
     &__image {
+        display: block;
+        width: 100%;
         aspect-ratio: 16 / 9;
+        object-fit: contain;
         background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
     }
 

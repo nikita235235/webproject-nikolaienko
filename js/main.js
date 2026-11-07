@@ -1,22 +1,25 @@
-import { sneakers } from './data/sneakers.js';
-import { brands } from './data/brands.js';
+import { getCatalog } from './services/api.js';
 import { Store } from './services/store.js';
 import { renderList } from './ui/renderList.js';
 import { renderFilters } from './ui/renderFilters.js';
+import { renderSkeleton } from './ui/renderSkeleton.js';
+import { renderError } from './ui/renderError.js';
 import { openModal, initModal } from './ui/modal.js';
 import { initFeedbackForm } from './ui/feedbackForm.js';
 import { formatPrice } from './utils/format.js';
 
-const store = new Store(sneakers, brands);
+let store = new Store([], []);
 
 const container = document.querySelector('#catalog');
 const filters = document.querySelector('#filters');
 const searchInput = document.querySelector('#search');
 const sortSelect = document.querySelector('#sort');
 
-let state = { query: '', brandId: null, sort: 'title' };
+let state = { status: 'idle', error: null, query: '', brandId: null, sort: 'title' };
 
 function update() {
+    if (state.status !== 'success') return;
+
     const found = store
         .search(state.query)
         .filter(item => !state.brandId || item.brandId === state.brandId);
@@ -30,6 +33,35 @@ function update() {
         button.classList.toggle('button--secondary', !active);
         button.setAttribute('aria-pressed', String(active));
     });
+}
+
+// Перемальовування залежить від стану завантаження
+function render() {
+    container.setAttribute('aria-busy', String(state.status === 'loading'));
+    if (state.status === 'loading') {
+        container.innerHTML = renderSkeleton();
+        return;
+    }
+    if (state.status === 'error') {
+        container.innerHTML = renderError();
+        return;
+    }
+    update();
+}
+
+async function load() {
+    state = { ...state, status: 'loading', error: null };
+    render();
+    try {
+        const { sneakers, brands } = await getCatalog();
+        store = new Store(sneakers, brands);
+        filters.innerHTML = renderFilters(brands);
+        state = { ...state, status: 'success' };
+    } catch (error) {
+        console.error('Не вдалося завантажити каталог:', error);
+        state = { ...state, status: 'error', error };
+    }
+    render();
 }
 
 // Пошук
@@ -69,9 +101,9 @@ container.addEventListener('click', (event) => {
             text: `Бренд: ${store.brandName(item.brandId)}. Ціна: ${formatPrice(item.price)}.`,
         });
     }
+    if (action === 'retry') load();
 });
 
-filters.innerHTML = renderFilters(brands);
 initModal();
 initFeedbackForm(document.querySelector('#feedback-form'), document.querySelector('#form-status'));
-update();
+load();

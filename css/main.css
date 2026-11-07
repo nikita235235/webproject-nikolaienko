@@ -83,6 +83,9 @@ body {
   max-width: 960px;
   text-align: left;
 }
+.catalog__message {
+  grid-column: 1/-1;
+}
 
 .toolbar {
   display: flex;
@@ -233,7 +236,10 @@ body {
   box-shadow: 0 4px 14px var(--color-shadow);
 }
 .card__image {
+  display: block;
+  width: 100%;
   aspect-ratio: 16/9;
+  object-fit: contain;
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
 }
 .card__title {
@@ -371,6 +377,44 @@ body {
   content: "!";
 }
 
+.skeleton {
+  pointer-events: none;
+}
+.skeleton__image, .skeleton__line {
+  background: var(--color-border);
+  animation: skeleton-pulse 1.2s ease-in-out infinite;
+}
+.skeleton__image {
+  aspect-ratio: 16/9;
+}
+.skeleton__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+.skeleton__line {
+  height: 14px;
+  border-radius: 3px;
+}
+.skeleton__line--short {
+  width: 40%;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton__image,
+  .skeleton__line {
+    animation: none;
+  }
+}
 .kit {
   max-width: 960px;
   margin-inline: auto;
