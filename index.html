@@ -2,21 +2,23 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SneakerDrop - Каталог</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header class="header">
         <div class="header__logo">SneakerDrop</div>
-        <nav class="header__nav">
-            <a href="#">Каталог</a>
-            <a href="#">Вибране</a>
+        <nav class="nav" aria-label="Основна навігація">
+            <a class="nav__link nav__link--active" href="#" aria-current="page">Каталог</a>
+            <a class="nav__link" href="#">Вибране</a>
+            <a class="nav__link" href="ui-kit.html">UI-кіт</a>
         </nav>
     </header>
-    
+
     <main class="main-content">
         <h1>Популярні кросівки</h1>
-        <button class="btn">Замовити зараз</button>
+        <button class="button button--primary" type="button">Замовити зараз</button>
     </main>
 
     <footer class="footer">
