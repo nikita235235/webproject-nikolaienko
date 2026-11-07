@@ -1,0 +1,20 @@
+{
+  "name": "webproject-nikolaienko-main",
+  "version": "1.0.0",
+  "description": "Автор: Ніколаєнко Нікіта, група 5-ІПБ Тема: Каталог кросівок SneakerDrop Стек: React + PHP + MySQL Посилання на опублікований сайт: https://nikita235235.github.io/webproject-nikolaienko/",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+"scripts": {
+    "css": "sass scss/main.scss css/main.css --watch --style=expanded",
+    "build:css": "sass scss/main.scss css/main.css --style=compressed --no-source-map"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.108.1"
+  }
+}
