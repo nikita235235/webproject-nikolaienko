@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SneakerDrop - UI-кіт</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">SneakerDrop</div>
+        <nav class="nav" aria-label="Основна навігація">
+            <a class="nav__link" href="index.html">Каталог</a>
+            <a class="nav__link" href="#">Вибране</a>
+            <a class="nav__link nav__link--active" href="ui-kit.html" aria-current="page">UI-кіт</a>
+        </nav>
+    </header>
+
+    <main class="kit">
+        <div class="kit__intro">
+            <h1 class="kit__title">UI-кіт SneakerDrop</h1>
+            <button class="button button--secondary" type="button" id="theme-toggle">Темна тема</button>
+        </div>
+
+        <section class="kit__section" aria-labelledby="kit-buttons">
+            <h2 class="kit__heading" id="kit-buttons">Кнопки</h2>
+            <div class="kit__row">
+                <button class="button button--primary" type="button">Primary</button>
+                <button class="button button--secondary" type="button">Secondary</button>
+                <button class="button button--ghost" type="button">Ghost</button>
+            </div>
+            <div class="kit__row">
+                <button class="button button--primary" type="button" disabled>Primary</button>
+                <button class="button button--secondary" type="button" disabled>Secondary</button>
+                <button class="button button--ghost" type="button" disabled>Ghost</button>
+            </div>
+            <p class="kit__note">Верхній ряд: звичайний стан (наведення, Tab та натискання перевіряються вручну). Нижній ряд: вимкнений стан.</p>
+        </section>
+
+        <section class="kit__section" aria-labelledby="kit-fields">
+            <h2 class="kit__heading" id="kit-fields">Поля форми</h2>
+            <div class="kit__stack">
+                <div class="field">
+                    <label class="field__label" for="email">Електронна пошта</label>
+                    <input class="field__input" id="email" type="email" placeholder="name@example.com">
+                </div>
+                <div class="field field--invalid">
+                    <label class="field__label" for="password">Пароль</label>
+                    <input class="field__input" id="password" type="password" value="123"
+                           aria-invalid="true" aria-describedby="password-error">
+                    <span class="field__error" id="password-error">Пароль має містити щонайменше 8 символів</span>
+                </div>
+                <div class="field field--disabled">
+                    <label class="field__label" for="brand">Бренд</label>
+                    <input class="field__input" id="brand" type="text" value="Nike" disabled>
+                </div>
+            </div>
+        </section>
+
+        <section class="kit__section" aria-labelledby="kit-cards">
+            <h2 class="kit__heading" id="kit-cards">Картки</h2>
+            <div class="kit__grid">
+                <article class="card">
+                    <div class="card__image" role="img" aria-label="Заглушка зображення кросівок"></div>
+                    <h3 class="card__title">Nike Air Max 90</h3>
+                    <p class="card__text">Класична модель із видимою повітряною подушкою.</p>
+                    <div class="card__footer">
+                        <span>4 200 грн</span>
+                        <button class="button button--secondary" type="button">У вибране</button>
+                    </div>
+                </article>
+                <article class="card card--featured">
+                    <div class="card__image" role="img" aria-label="Заглушка зображення кросівок"></div>
+                    <h3 class="card__title">Adidas Samba OG</h3>
+                    <p class="card__text">Вибір редакції: легенда футзалу у повсякденному стилі.</p>
+                    <div class="card__footer">
+                        <span>3 600 грн</span>
+                        <button class="button button--primary" type="button">У вибране</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="kit__section" aria-labelledby="kit-nav">
+            <h2 class="kit__heading" id="kit-nav">Навігація</h2>
+            <nav class="nav" aria-label="Приклад навігації">
+                <a class="nav__link nav__link--active" href="#" aria-current="page">Каталог</a>
+                <a class="nav__link" href="#">Вибране</a>
+                <a class="nav__link" href="#">Вхід</a>
+            </nav>
+        </section>
+
+        <section class="kit__section" aria-labelledby="kit-alerts">
+            <h2 class="kit__heading" id="kit-alerts">Повідомлення</h2>
+            <div class="kit__stack">
+                <div class="alert alert--success" role="status">Кросівки додано до списку «Вибране».</div>
+                <div class="alert alert--error" role="alert">Помилка: не вдалося увійти, перевірте пароль.</div>
+                <div class="alert alert--warning" role="status">Увага: залишилась остання пара вашого розміру.</div>
+            </div>
+        </section>
+
+        <section class="kit__section" aria-labelledby="kit-modal">
+            <h2 class="kit__heading" id="kit-modal">Модальне вікно</h2>
+            <div class="kit__row">
+                <button class="button button--primary" type="button" id="modal-open">Відкрити вікно</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal__overlay" data-close></div>
+        <div class="modal__window">
+            <button class="modal__close" type="button" aria-label="Закрити" data-close>&times;</button>
+            <h2 class="modal__title" id="modal-title">Потрібна авторизація</h2>
+            <p>Щоб додати кросівки до списку «Вибране», увійдіть в обліковий запис.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 SneakerDrop. Всі права захищено.</p>
+    </footer>
+
+    <script>
+        var root = document.documentElement;
+        var toggle = document.getElementById('theme-toggle');
+        var modal = document.getElementById('modal');
+        var opener = document.getElementById('modal-open');
+
+        toggle.addEventListener('click', function () {
+            var dark = root.getAttribute('data-theme') !== 'dark';
+            root.setAttribute('data-theme', dark ? 'dark' : 'light');
+            toggle.textContent = dark ? 'Світла тема' : 'Темна тема';
+        });
+
+        function openModal() {
+            modal.classList.add('modal--open');
+            modal.querySelector('.modal__close').focus();
+        }
+        function closeModal() {
+            modal.classList.remove('modal--open');
+            opener.focus();
+        }
+
+        opener.addEventListener('click', openModal);
+        modal.querySelectorAll('[data-close]').forEach(function (el) {
+            el.addEventListener('click', closeModal);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('modal--open')) closeModal();
+        });
+    </script>
+</body>
+</html>
