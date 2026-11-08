@@ -102,7 +102,7 @@ body {
 .toolbar__sort {
   flex: 0 1 220px;
 }
-.toolbar__filters {
+.toolbar__filters, .toolbar__actions {
   display: flex;
   flex-wrap: wrap;
   flex-basis: 100%;

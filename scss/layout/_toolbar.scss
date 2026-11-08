@@ -13,7 +13,8 @@
 
     &__sort { flex: 0 1 220px; }
 
-    &__filters {
+    &__filters,
+    &__actions {
         display: flex;
         flex-wrap: wrap;
         flex-basis: 100%;
