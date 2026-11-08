@@ -1,0 +1,15 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+    @include flex-center(row);
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--color-surface);
+
+    &__logo {
+        font-weight: bold;
+        font-size: 24px;
+        color: var(--color-primary);
+    }
+}

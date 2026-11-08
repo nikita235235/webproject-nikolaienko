@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as *;
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: $space * 2;
+    width: 100%;
+    max-width: 960px;
+    text-align: left;
+
+    &__search { flex: 1 1 240px; }
+
+    &__sort { flex: 0 1 220px; }
+
+    &__filters,
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+        gap: $space;
+    }
+}

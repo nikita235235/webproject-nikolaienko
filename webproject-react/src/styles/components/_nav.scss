@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.nav {
+    display: flex;
+    gap: $space * 2;
+
+    &__link {
+        padding: $space * 0.5 $space;
+        border-radius: $radius;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: color $transition, background $transition;
+
+        &:hover { color: var(--color-primary); }
+
+        @include focus-ring;
+
+        &--active {
+            color: var(--color-primary);
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+    }
+}

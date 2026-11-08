@@ -1,0 +1,39 @@
+@use '../abstracts/variables' as *;
+
+// Тип повідомлення передається не лише кольором: значок + текст
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: $space;
+    padding: $space * 1.5 $space * 2;
+    border-left: 4px solid currentColor;
+    border-radius: $radius;
+    background: var(--color-surface);
+    color: var(--color-text);
+
+    &::before {
+        font-weight: bold;
+        line-height: 1.4;
+    }
+
+    &--success {
+        background: var(--color-success-bg);
+        color: var(--color-success-text);
+
+        &::before { content: '✓'; }
+    }
+
+    &--error {
+        background: var(--color-error-bg);
+        color: var(--color-error-text);
+
+        &::before { content: '✕'; }
+    }
+
+    &--warning {
+        background: var(--color-warning-bg);
+        color: var(--color-warning-text);
+
+        &::before { content: '!'; }
+    }
+}

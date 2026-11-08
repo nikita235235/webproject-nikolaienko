@@ -1,0 +1,38 @@
+@use '../abstracts/variables' as *;
+
+// Скелет картки на час завантаження даних (використовується разом із card)
+.skeleton {
+    pointer-events: none;
+
+    &__image,
+    &__line {
+        background: var(--color-border);
+        animation: skeleton-pulse 1.2s ease-in-out infinite;
+    }
+
+    &__image { aspect-ratio: 16 / 9; }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: $space * 1.5;
+        padding: $space * 2;
+    }
+
+    &__line {
+        height: 14px;
+        border-radius: $radius * 0.5;
+
+        &--short { width: 40%; }
+    }
+}
+
+@keyframes skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skeleton__image,
+    .skeleton__line { animation: none; }
+}

@@ -1,0 +1,24 @@
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+@use 'base/reset';
+@use 'base/theme';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/catalog';
+@use 'layout/toolbar';
+@use 'layout/feedback';
+@use 'components/button';
+@use 'components/form';
+@use 'components/card';
+@use 'components/nav';
+@use 'components/modal';
+@use 'components/alert';
+@use 'components/skeleton';
+@use 'pages/ui-kit';
+
+.main-content {
+    @include flex-center(column);
+    gap: $space * 3;
+    padding: 20px;
+    text-align: center;
+}

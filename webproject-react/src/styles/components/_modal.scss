@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    &--open { display: flex; }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: var(--color-overlay);
+    }
+
+    &__window {
+        position: relative;
+        width: min(480px, 90vw);
+        padding: $space * 4 $space * 3 $space * 3;
+        background: var(--color-surface);
+        color: var(--color-text);
+        border-radius: $radius * 2;
+        box-shadow: 0 8px 32px var(--color-shadow);
+    }
+
+    &__title {
+        margin-bottom: $space;
+        font-size: 20px;
+    }
+
+    &__close {
+        position: absolute;
+        top: $space;
+        right: $space;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: $radius;
+        background: transparent;
+        color: var(--color-text);
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover { background: var(--color-hover-bg); }
+
+        @include focus-ring;
+    }
+}

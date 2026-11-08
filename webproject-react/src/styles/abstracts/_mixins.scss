@@ -1,0 +1,22 @@
+@use 'variables' as *;
+
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == tablet {
+        @media (min-width: $bp-tablet) { @content; }
+    }
+}
+
+// Видимий індикатор фокусу з клавіатури (єдиний для всіх компонентів)
+@mixin focus-ring {
+    &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+}

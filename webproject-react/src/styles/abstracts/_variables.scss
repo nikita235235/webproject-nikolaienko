@@ -1,0 +1,28 @@
+// Кольори (світла тема)
+$color-primary: #c2410c;
+$color-primary-hover: #9a3412;
+$color-on-primary: #ffffff;
+$color-bg: #f4f4f4;
+$color-surface: #ffffff;
+$color-text: #333333;
+$color-text-muted: #5a5f66;
+$color-border: #d6d9dc;
+$color-border-strong: #767676;
+$color-hover-bg: rgba(0, 0, 0, 0.06);
+$color-shadow: rgba(0, 0, 0, 0.15);
+$color-overlay: rgba(0, 0, 0, 0.55);
+$color-error-text: #8c1d18;
+$color-error-bg: #fdecea;
+$color-success-text: #1b5e30;
+$color-success-bg: #e6f4ea;
+$color-warning-text: #6b4100;
+$color-warning-bg: #fff4dc;
+
+// Типографіка та адаптивність
+$font-base: 'Arial', sans-serif;
+$bp-tablet: 768px;
+
+// Геометрія та анімація
+$space: 8px;
+$radius: 6px;
+$transition: 0.2s ease;

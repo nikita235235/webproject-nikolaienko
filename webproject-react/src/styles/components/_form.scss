@@ -1,0 +1,54 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: $space * 0.5;
+
+    &__label {
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--color-text);
+    }
+
+    &__input {
+        padding: $space * 1.25 $space * 1.5;
+        border: 1px solid var(--color-border-strong);
+        border-radius: $radius;
+        background: var(--color-surface);
+        color: var(--color-text);
+        font: inherit;
+        transition: border-color $transition;
+
+        @include focus-ring;
+    }
+
+    // Повідомлення про помилку: текст + значок, не лише колір
+    &__error {
+        display: none;
+        font-size: 14px;
+        color: var(--color-error-text);
+
+        &::before { content: '⚠ '; }
+    }
+
+    &--invalid {
+        .field__input {
+            border-color: var(--color-error-text);
+            border-width: 2px;
+        }
+
+        .field__error { display: block; }
+    }
+
+    &--disabled {
+        .field__label,
+        .field__input { opacity: 0.6; }
+
+        .field__input {
+            background: var(--color-hover-bg);
+            cursor: not-allowed;
+        }
+    }
+}
