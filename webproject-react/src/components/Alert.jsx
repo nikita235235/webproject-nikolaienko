@@ -1,6 +1,8 @@
-export function Alert({ variant = 'warning', children }) {
+export function Alert({ variant, className = '', children }) {
+    const classes = ['alert', variant && `alert--${variant}`, className].filter(Boolean).join(' ');
+
     return (
-        <div className={`alert alert--${variant}`} role={variant === 'error' ? 'alert' : 'status'}>
+        <div className={classes} role={variant === 'error' ? 'alert' : 'status'}>
             {children}
         </div>
     );
